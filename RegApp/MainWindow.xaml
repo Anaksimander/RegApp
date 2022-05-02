@@ -9,15 +9,15 @@
         Title="Регистрация" Height="600" Width="1000"
         Background="#0095B6">
     <Grid>
-        <Border MinWidth="400" MaxWidth="650" Background="#FF7400" VerticalAlignment="Center" Padding="40"
+        <Border MinWidth="400" MaxWidth="650" Background="White" VerticalAlignment="Center" Padding="40"
                 CornerRadius="20">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="15" ShadowDepth="5" Color="#A64B00"/>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="5" Color="DarkBlue"/>
             </Border.Effect>
             <StackPanel>
                 <TextBlock Text="You are welcome" FontSize="30" FontWeight="DemiBold" Margin="0 0 0 20" HorizontalAlignment="Center">
                     <TextBlock.Effect>
-                        <DropShadowEffect BlurRadius="10" ShadowDepth="5" Color="#A64B00"/>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5" Color="DarkBlue"/>
                     </TextBlock.Effect>
                 </TextBlock>
                 <Grid Margin="0 0 0 20">
