@@ -18,9 +18,9 @@ namespace RegApp
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegWindow : Window
     {
-        public MainWindow()
+        public RegWindow()
         {
             InitializeComponent();
         }
@@ -33,32 +33,33 @@ namespace RegApp
             string email = emailBox.Text;
 
             bool check = true;
+            string warning = "Это поле введено не корректно";
 
-            if(login.Length > 12 || login.Length < 6)
+            if (login.Length > 12 || login.Length < 6)
             {
                 check = false;
-                logBox.ToolTip = "Это поле введено не коректно";
+                logBox.ToolTip = warning;
                 logBox.Background = Brushes.OrangeRed;
             }
 
             if(password.Length > 20 || password.Length < 6)
             {
                 check = false;
-                passBox.ToolTip = "Это поле введено не коректно";
+                passBox.ToolTip = warning;
                 passBox.Background = Brushes.OrangeRed;
             }
 
             if (password != password2 || password2 == "")
             {
                 check = false;
-                passBox2.ToolTip = "Это поле введено не коректно";
+                passBox2.ToolTip = warning;
                 passBox2.Background = Brushes.OrangeRed;
             }
 
             if (!(email.Contains('@') && email.Contains('.') && email.Length >= 5))
             {
                 check = false;
-                emailBox.ToolTip = "Это поле введено не коректно";
+                emailBox.ToolTip = warning;
                 emailBox.Background = Brushes.OrangeRed;
             }
 
