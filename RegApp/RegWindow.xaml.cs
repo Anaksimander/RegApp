@@ -78,7 +78,23 @@ namespace RegApp
                 emailBox.Background = Brushes.Transparent;
 
                 MessageBox.Show("Успешно!");
+                new LoginWindow().Show();
+                Close();
             }
+        }
+
+        private void logBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new LoginWindow().Show();
+            Close();
+        }
+
+        private void logBox_LostMouseCapture(object sender, MouseEventArgs e)
+        {
+            logBox.Background = Brushes.Transparent;
+            passBox.Background = Brushes.Transparent;
+            passBox2.Background = Brushes.Transparent;
+            emailBox.Background = Brushes.Transparent;
         }
     }
 }

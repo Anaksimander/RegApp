@@ -23,5 +23,16 @@ namespace RegApp
         {
             InitializeComponent();
         }
+
+        private void LogBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RegBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new RegWindow().Show();
+            Close();
+        }
     }
 }

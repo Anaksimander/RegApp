@@ -52,24 +52,29 @@
                         />
                     <Button 
                         Content="Войти" 
-                        HorizontalAlignment="Right" 
+                        HorizontalAlignment="Right"
+                        Click="logBtn_Click"
                         Style="{StaticResource OutBtn}"/>
                 </Grid>
                 <TextBox 
                     x:Name="logBox" 
                     materialDesign:HintAssist.Hint="Введите логин" 
+                    LostMouseCapture="logBox_LostMouseCapture"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <PasswordBox 
                     x:Name="passBox" 
                     materialDesign:HintAssist.Hint="Введите пароль" 
+                    LostMouseCapture="logBox_LostMouseCapture"
                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                 <PasswordBox 
                     x:Name="passBox2" 
                     materialDesign:HintAssist.Hint="Повторите пароль" 
+                    LostMouseCapture="logBox_LostMouseCapture"
                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                 <TextBox 
                     x:Name="emailBox" 
                     materialDesign:HintAssist.Hint="Email" 
+                    LostMouseCapture="logBox_LostMouseCapture"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <Button 
                     x:Name="regBtm" 

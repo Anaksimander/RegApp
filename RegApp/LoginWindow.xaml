@@ -9,8 +9,19 @@
         Title="Вход" Height="600" Width="1000"
         Background="#0095B6">
     <Window.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignOutlinedButton}">
+            <Setter Property="Background" Value="#FF00BAFF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
 
+        <Style TargetType="Button" x:Key="OutBtn" 
+               BasedOn="{StaticResource MaterialDesignOutlinedButton}">
+            <Setter Property="BorderBrush" Value="#FF00BAFF"/>
+            <Setter Property="Foreground" Value="#FF00BAFF"/>
+        </Style>
     </Window.Resources>
+    
     <Grid>
         <Border 
             MinWidth="400" 
@@ -37,11 +48,11 @@
                     <Button 
                         Content="Регистрация" 
                         HorizontalAlignment="Left" 
-                        Style="{StaticResource MaterialDesignOutlinedButton}"/>
+                        Click="RegBtn_Click"
+                        Style="{StaticResource OutBtn}"/>
                     <Button 
                         Content="Войти" 
-                        HorizontalAlignment="Right" 
-                        Style="{StaticResource MaterialDesignOutlinedButton}"/>
+                        HorizontalAlignment="Right"/>
                 </Grid>
                 <TextBox 
                     x:Name="logBox" 
@@ -51,19 +62,12 @@
                     x:Name="passBox" 
                     materialDesign:HintAssist.Hint="Введите пароль" 
                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                <PasswordBox 
-                    x:Name="passBox2" 
-                    materialDesign:HintAssist.Hint="Повторите пароль" 
-                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                <TextBox 
-                    x:Name="emailBox" 
-                    materialDesign:HintAssist.Hint="Email" 
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <Button 
                     x:Name="regBtm" 
-                    Content="Зарегестрироваться" 
-                    Margin="0 20" 
-                    Style="{StaticResource MaterialDesignOutlinedButton}"/>
+                    Content="Войти" 
+                    Margin="0 20"
+                    Click="LogBtn_Click"
+                    Style="{StaticResource OutBtn}"/>
             </StackPanel>
         </Border>
     </Grid>
