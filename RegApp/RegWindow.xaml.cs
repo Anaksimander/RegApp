@@ -25,7 +25,7 @@ namespace RegApp
             InitializeComponent();
         }
 
-        private void regBtm_Click(object sender, RoutedEventArgs e)
+        private void RegBtm_Click(object sender, RoutedEventArgs e)
         {
             string login = logBox.Text;
             string password = passBox.Password;
@@ -83,18 +83,19 @@ namespace RegApp
             }
         }
 
-        private void logBtn_Click(object sender, RoutedEventArgs e)
-        {
-            new LoginWindow().Show();
-            Close();
-        }
 
-        private void logBox_LostMouseCapture(object sender, MouseEventArgs e)
+        private void LogBox_LostMouseCapture(object sender, MouseEventArgs e)
         {
             logBox.Background = Brushes.Transparent;
             passBox.Background = Brushes.Transparent;
             passBox2.Background = Brushes.Transparent;
             emailBox.Background = Brushes.Transparent;
+        }
+
+        private void LogBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new LoginWindow().Show();
+            Close();
         }
     }
 }

@@ -7,19 +7,11 @@
         xmlns:local="clr-namespace:RegApp"
         mc:Ignorable="d"
         Title="Вход" Height="600" Width="1000"
-        Background="#0095B6">
+        Background="{StaticResource MediumBrush}"
+        WindowStartupLocation="CenterScreen"
+        >
     <Window.Resources>
-        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignOutlinedButton}">
-            <Setter Property="Background" Value="#FF00BAFF"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderThickness" Value="0"/>
-        </Style>
 
-        <Style TargetType="Button" x:Key="OutBtn" 
-               BasedOn="{StaticResource MaterialDesignOutlinedButton}">
-            <Setter Property="BorderBrush" Value="#FF00BAFF"/>
-            <Setter Property="Foreground" Value="#FF00BAFF"/>
-        </Style>
     </Window.Resources>
     
     <Grid>
@@ -52,7 +44,8 @@
                         Style="{StaticResource OutBtn}"/>
                     <Button 
                         Content="Войти" 
-                        HorizontalAlignment="Right"/>
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource InBtn}"/>
                 </Grid>
                 <TextBox 
                     x:Name="logBox" 
