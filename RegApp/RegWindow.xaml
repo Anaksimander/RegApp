@@ -4,17 +4,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RegApp"       
+        xmlns:local="clr-namespace:RegApp" 
+
         mc:Ignorable="d"
         Title="Регистрация" Height="600" Width="1000"
         Background="{StaticResource MediumBrush}"
-        WindowStartupLocation="CenterScreen"
-        >
-        
+        WindowStartupLocation="CenterScreen">
+
     <Window.Resources>
         
     </Window.Resources>
-
+    
     <Grid>
         <Border 
             MinWidth="400" 
@@ -54,7 +54,8 @@
                     x:Name="logBox" 
                     materialDesign:HintAssist.Hint="Введите логин" 
                     LostMouseCapture="LogBox_LostMouseCapture"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text="{Binding Login}"/>
                 <PasswordBox 
                     x:Name="passBox" 
                     materialDesign:HintAssist.Hint="Введите пароль" 

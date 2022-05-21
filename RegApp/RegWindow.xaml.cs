@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RegApp.ViewModel;
 
 namespace RegApp
 {
@@ -23,6 +24,7 @@ namespace RegApp
         public RegWindow()
         {
             InitializeComponent();
+            DataContext = new RegViewModel();
         }
 
         private void RegBtm_Click(object sender, RoutedEventArgs e)
