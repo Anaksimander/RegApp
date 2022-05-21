@@ -12,7 +12,6 @@ namespace RegApp.Model
     {
         private int    _idUser;
         private string _login;
-        private string _password;
         private string _name;
         private string _email;
         private string _phone;

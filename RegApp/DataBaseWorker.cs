@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace WindowsFormsGMap
+namespace RegApp
 {
     internal class DataBaseWorker
     {
-        private readonly string connectionString = "Server=localhost;Database=master;Trusted_Connection=True;";
+        private readonly string connectionString;
         private SqlConnection connection;
-        private static string db_name = "markersDb";
+        private static string db_name = "RegAppBd";
         
 
         public DataBaseWorker()
@@ -34,6 +34,7 @@ namespace WindowsFormsGMap
             }
             catch (SqlException ex)
             {
+                Console.WriteLine("неполучилось открыть бд");
                 Console.WriteLine(ex.Message);
             }
         }
@@ -62,7 +63,7 @@ namespace WindowsFormsGMap
                 return null;
         }
 
-        public string ExecuteQuery(string query)
+         public string ExecuteQuery(string query)
         {
             SqlCommand cmd = new SqlCommand(query, connection);
 

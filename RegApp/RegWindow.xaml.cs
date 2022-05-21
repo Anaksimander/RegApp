@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using RegApp.ViewModel;
 
 namespace RegApp
 {
@@ -21,10 +20,12 @@ namespace RegApp
     /// </summary>
     public partial class RegWindow : Window
     {
+        private readonly DataBaseWorker bd;
         public RegWindow()
         {
             InitializeComponent();
-            DataContext = new RegViewModel();
+            bd = new DataBaseWorker();
+            bd.OpentConection();
         }
 
         private void RegBtm_Click(object sender, RoutedEventArgs e)
@@ -60,10 +61,25 @@ namespace RegApp
 
             if (!(email.Contains('@') && email.Contains('.') && email.Length >= 5))
             {
-                check = false;
+                
                 emailBox.ToolTip = warning;
                 emailBox.Background = Brushes.OrangeRed;
             }
+
+            if (bd.ExecuteQuery($"SELECT login FROM UsersInfo WHERE login = '{logBox.Text}'") != null)
+            {
+                check = false;
+                emailBox.ToolTip = "Пользователь с таким логином уже существует";
+                emailBox.Background = Brushes.OrangeRed;
+            }
+
+            if (bd.ExecuteQuery($"SELECT login FROM UsersInfo WHERE login = '{emailBox.Text}'") != null)
+            {
+                check = false;
+                emailBox.ToolTip = "Пользователь с таким email уже существует";
+                emailBox.Background = Brushes.OrangeRed;
+            }
+
 
             if (check)
             {
@@ -79,10 +95,13 @@ namespace RegApp
                 emailBox.ToolTip = "";
                 emailBox.Background = Brushes.Transparent;
 
-                MessageBox.Show("Успешно!");
+                
+                bd.ExecuteQuery($"INSERT INTO UsersInfo (login, password, email) VALUES('{logBox.Text}', '{passBox.Password}', '{emailBox.Text}')");
+                bd.CloseConection(); 
                 new LoginWindow().Show();
                 Close();
             }
+
         }
 
 
