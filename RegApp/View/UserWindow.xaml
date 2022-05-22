@@ -9,6 +9,7 @@
         Title="Вход" Height="600" Width="1000"
         Background="{StaticResource MediumBrush}"
         WindowStartupLocation="CenterScreen"
+        x:Name="Mainw"
         >
     <Window.Resources>
         <Style TargetType="TextBox">
@@ -48,7 +49,9 @@
                     <Button 
                         Content="Выйти" 
                         HorizontalAlignment="Right"
-                        Style="{StaticResource InBtn}"/>
+                        Style="{StaticResource InBtn}"
+                        Command="{Binding ExitCommand}"
+                        CommandParameter="{Binding ElementName =Mainw}"/>
                 </Grid>
 
                 <ListBox Grid.Column="0" DataContext ="{Binding SelectedUser}">
