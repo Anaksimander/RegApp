@@ -1,0 +1,108 @@
+﻿<Window x:Class="RegApp.View.UserWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RegApp.View"
+        mc:Ignorable="d"
+        Title="Вход" Height="600" Width="1000"
+        Background="{StaticResource MediumBrush}"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="BorderThickness" Value="0"/>
+ 
+        </Style>
+        <Style TargetType="TextBlock" x:Key="listBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    
+
+    <Grid>
+        <Border 
+            MinWidth="400" 
+            MaxWidth="650" 
+            Background="White" 
+            VerticalAlignment="Center" 
+            Padding="40"
+            CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" ShadowDepth="5" Color="DarkBlue"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock 
+                    Text="My profile" 
+                    FontSize="30" 
+                    FontWeight="DemiBold" 
+                    Margin="0 0 0 20" 
+                    HorizontalAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="5" Color="DarkBlue"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <Grid Margin="0 0 0 20">
+                    <Button 
+                        Content="Выйти" 
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource InBtn}"/>
+                </Grid>
+
+                <ListBox Grid.Column="0" DataContext ="{Binding SelectedUser}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <StackPanel  
+                    DataContext="{Binding SelectedUser}">
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Login: "/>
+                        <TextBox Text="{Binding Login}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Имя: " Style="{StaticResource listBlock}"/>
+                        <TextBox Text="{Binding Name}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Email: " Style="{StaticResource listBlock}"/>
+                        <TextBox Text="{Binding Email}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Телефон: " Style="{StaticResource listBlock}"/>
+                        <TextBox Text="{Binding Phone}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Адрес: " Style="{StaticResource listBlock}"/>
+                        <TextBox Text="{Binding Address}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Город: " Style="{StaticResource listBlock}"/>
+                        <TextBox Text="{Binding City}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Пол: " Style="{StaticResource listBlock}"/>
+                        <TextBox Text="{Binding Sec}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Страна: " Style="{StaticResource listBlock}"/>
+                        <TextBox Text="{Binding Country}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Button 
+                    x:Name="saveBtm" 
+                    Content="Сохранить" 
+                    Margin="0 20"
+                    Style="{StaticResource OutBtn}"
+                    IsDefault="True"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

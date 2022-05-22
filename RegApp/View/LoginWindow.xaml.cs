@@ -11,8 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using RegApp;
 
-namespace RegApp
+namespace RegApp.View
 {
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
@@ -53,12 +54,28 @@ namespace RegApp
 
             if (check)
             {
-                if (bd.ExecuteQuery($"SELECT login FROM UsersInfo WHERE login = '{logBox.Text}'") != null)
-                {
-                    MessageBox.Show("Успешно!");
+                logBox.ToolTip = "";
+                logBox.Background = Brushes.Transparent;
 
+                passBox.ToolTip = "";
+                passBox.Background = Brushes.Transparent;
+                string id_user;
+                if ((id_user = bd.ExecuteQuery($"SELECT id_user FROM UsersInfo WHERE login = '{logBox.Text}'")) != null)
+                {
+                    new UserWindow(id_user).Show();
+                    Close();
+                    bd.CloseConection();
+                }
+                else
+                {
+                    MessageBox.Show("Логин или пароль введены неправильно!");
                 }
             }
+        }
+        private void LogBox_LostMouseCapture(object sender, MouseEventArgs e)
+        {
+            logBox.Background = Brushes.Transparent;
+            passBox.Background = Brushes.Transparent;
         }
 
         private void RegBtn_Click(object sender, RoutedEventArgs e)

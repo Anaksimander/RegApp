@@ -63,20 +63,41 @@ namespace RegApp
                 return null;
         }
 
-         public string ExecuteQuery(string query)
+        public List<string> ExecuteQueryRow(string query, int col)
         {
-            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlCommand sqlCommand = new SqlCommand(query, connection);
 
-            SqlDataReader cmdDataReader = cmd.ExecuteReader();
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+            List<string> response = new List<string>();
+
+            while (sqlDataReader.Read())
+            {
+                for (int i = 0; i < col; i++)
+                {
+                    response.Add(sqlDataReader[i].ToString());
+                }
+            }
+
+            sqlDataReader.Close();
+
+            return response;
+        }
+
+        public string ExecuteQuery(string query)
+        {
+            SqlCommand sqlCommand = new SqlCommand(query, connection);
+
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
             string response = null;
 
-            while (cmdDataReader.Read())
+            while (sqlDataReader.Read())
             {
-                response = cmdDataReader[0].ToString();
+                response = sqlDataReader[0].ToString();
             }
 
-            cmdDataReader.Close();
+            sqlDataReader.Close();
 
             return response;
         }
